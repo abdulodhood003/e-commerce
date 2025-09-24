@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';      // File: Navbar.jsx
-import Footer from './components/Footer';      // File: Footer.jsx
-import SearchBar from './components/SearchBar';// File: SearchBar.jsx
+import Navbar from './components/Navbar';      // Navbar.jsx
+import Footer from './components/Footer';      // Footer.jsx
+import SearchBar from './components/SearchBar';// SearchBar.jsx
 
-import Home from './pages/Home';              // File: Home.jsx (capitalize first letter)
-import Collection from './pages/Collection';  // File: Collection.jsx
-import About from './pages/About';            // File: About.jsx
-import Contact from './pages/Contact';        // File: Contact.jsx
-import Product from './pages/Product';        // File: Product.jsx
-import Cart from './pages/Cart';              // File: Cart.jsx
-import Login from './pages/Login';            // File: Login.jsx
-import PlaceOrder from './pages/PlaceOrder';  // File: PlaceOrder.jsx
-import Orders from './pages/Orders';          // File: Orders.jsx
-import Verify from '../../admin/src/pages/Verify'; // File: Verify.jsx
+import Home from './pages/Home';              // Home.jsx
+import Collection from './pages/Collection';  // Collection.jsx
+import About from './pages/About';            // About.jsx
+import Contact from './pages/Contact';        // Contact.jsx
+import Product from './pages/Product';        // Product.jsx
+import Cart from './pages/Cart';              // Cart.jsx
+import Login from './pages/Login';            // Login.jsx
+import PlaceOrder from './pages/PlaceOrder';  // PlaceOrder.jsx
+import Orders from './pages/Orders';          // Orders.jsx
 
+// Lazy load Verify from admin
+const Verify = React.lazy(() => import('../../admin/src/pages/Verify'));
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -35,12 +37,19 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/verify" element={<Verify />} />
-
+        <Route
+          path="/verify"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Verify />
+            </Suspense>
+          }
+        />
       </Routes>
+
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
