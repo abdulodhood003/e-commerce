@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';      // Navbar.jsx
 import Footer from './components/Footer';      // Footer.jsx
@@ -13,9 +13,7 @@ import Cart from './pages/Cart';              // Cart.jsx
 import Login from './pages/Login';            // Login.jsx
 import PlaceOrder from './pages/PlaceOrder';  // PlaceOrder.jsx
 import Orders from './pages/Orders';          // Orders.jsx
-
-// Lazy load Verify from admin
-const Verify = React.lazy(() => import('../../admin/src/pages/Verify'));
+import Verify from './pages/Verify';          // Verify.jsx moved from admin
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,14 +35,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/orders" element={<Orders />} />
-        <Route
-          path="/verify"
-          element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Verify />
-            </Suspense>
-          }
-        />
+        <Route path="/verify" element={<Verify />} />
       </Routes>
 
       <Footer />
