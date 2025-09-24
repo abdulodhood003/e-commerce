@@ -13,7 +13,7 @@ import Login from './pages/login'
 import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
 import SearchBar from './components/SearchBar'
-import Verify  from '../../admin/src/pages/verify'
+import Verify  from '../../admin/src/pages/Verify'
 
 import { ToastContainer, toast } from 'react-toastify';
 
