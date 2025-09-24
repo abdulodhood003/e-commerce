@@ -4,7 +4,6 @@ import LatestCollection from '../components/latestcollection'
 import BestSeller from '../components/BestSeller'
 import OurPolicy from '../components/OurPolicy'
 import Newsletter from '../components/Newsletter'
-import Collection from './collection'
 
 const Home = () => {
   return (
