@@ -1,0 +1,30 @@
+# Node modules (common for backend, frontend, admin)
+node_modules/
+
+# Environment files (never push secrets)
+.env
+backend/.env
+frontend/.env
+admin/.env
+
+# Build folders
+build/
+dist/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Misc/cache/coverage
+*.cache
+coverage/
