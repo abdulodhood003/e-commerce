@@ -1,19 +1,20 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';      // File: Navbar.jsx
+import Footer from './components/Footer';      // File: Footer.jsx
+import SearchBar from './components/SearchBar';// File: SearchBar.jsx
 
-import Home from './pages/home'
-import Collection from './pages/collection'
-import About from './pages/About'
-import Contact from './pages/contact'
-import Product from './pages/product'
-import Cart from './pages/cart'
-import Login from './pages/login'
-import PlaceOrder from './pages/PlaceOrder'
-import Orders from './pages/Orders'
-import SearchBar from './components/SearchBar'
-import Verify  from '../../admin/src/pages/Verify'
+import Home from './pages/Home';              // File: Home.jsx (capitalize first letter)
+import Collection from './pages/Collection';  // File: Collection.jsx
+import About from './pages/About';            // File: About.jsx
+import Contact from './pages/Contact';        // File: Contact.jsx
+import Product from './pages/Product';        // File: Product.jsx
+import Cart from './pages/Cart';              // File: Cart.jsx
+import Login from './pages/Login';            // File: Login.jsx
+import PlaceOrder from './pages/PlaceOrder';  // File: PlaceOrder.jsx
+import Orders from './pages/Orders';          // File: Orders.jsx
+import Verify from '../../admin/src/pages/Verify'; // File: Verify.jsx
+
 
 import { ToastContainer, toast } from 'react-toastify';
 
