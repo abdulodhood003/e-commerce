@@ -1,21 +1,11 @@
 import multer from 'multer';
-import fs from 'fs';
 
-// Ensure 'uploads' folder exists
-const uploadDir = 'uploads';
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
+// Use memory storage for serverless environments (like Vercel)
+const storage = multer.memoryStorage();
 
-const storage = multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null, uploadDir);
-    },
-    filename: function (req, file, callback) {
-        callback(null, file.originalname);
-    }
+const upload = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 } // optional: 5MB per file
 });
-
-const upload = multer({ storage });
 
 export default upload;
