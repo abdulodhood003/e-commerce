@@ -16,10 +16,14 @@ connectCloudinary();
 
 // Middlewares
 app.use(cors({
-  origin: 'https://abdul-admin-dashboard.vercel.app', // Replace with your frontend URL
+  origin: [
+    'https://abdul-admin-dashboard.vercel.app', // Admin frontend
+    'https://abdul-frontend-ecom.vercel.app'    // E-commerce frontend
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
+
 app.use(express.json()); // Must come before routers
 
 // API routes
